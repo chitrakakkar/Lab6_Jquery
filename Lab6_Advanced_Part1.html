@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<h1>My daily planner</h1>
+<ul id = "Daily_Planner">
+</ul>
+<input type="text" id="list_input"/>
+<button id = 'add_items' type = 'button'>Add your daily routine to your List</button>
+
+<script>
+
+    $("#add_items").click(function ()
+    {
+        var list_items = "<li>" + $("#list_input").val() + "</li>";
+        $("#Daily_Planner").append(list_items)
+        $("#list_input").val("");
+
+    });
+</script>
+
+</body>
+</html>
