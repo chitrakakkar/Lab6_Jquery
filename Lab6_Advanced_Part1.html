@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
+    <link href="Style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <h1>My daily planner</h1>
@@ -12,15 +13,29 @@
 <input type="text" id="list_input"/>
 <button id = 'add_items' type = 'button'>Add your daily routine to your List</button>
 
+<h1>Remove Done items from the list</h1>
+<button id="remove_items" type="button">Remove done items from the list</button>
 <script>
 
     $("#add_items").click(function ()
     {
-        var list_items = "<li>" + $("#list_input").val() + "</li>";
-        $("#Daily_Planner").append(list_items)
+        var list_items = "<li class='list_elements'>" + $("#list_input").val() + "</li>";
+        $("#Daily_Planner").append(list_items);
         $("#list_input").val("");
 
     });
+
+    $(".list_elements").click(function ()
+    {
+        this.toggleClass("Done")
+    });
+    $("#remove_items").click(function ()
+    {
+        (".done").remove();
+
+    })
+
+
 </script>
 
 </body>
