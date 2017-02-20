@@ -20,10 +20,11 @@
     {
     $("#add_items").click(function ()
     {
-
+        // creates a new list item with new class name;#list_input.val gives the text
         var list_items = "<li class='list_elements'>" + $("#list_input").val() + "</li>";
         $("#Daily_Planner").append(list_items);
         // https://api.jquery.com/nth-last-child-selector/
+        // with the last-child, the function was getting added more than once to each list element if more than one
         $(".list_elements:last-child").click(function ()
         {
             alert("Hello");
@@ -33,7 +34,8 @@
         $("#list_input").val("");
 
     });
-
+        // select the class items and remove;
+        //http://stackoverflow.com/questions/7004059/jquery-remove-all-list-items-from-an-unordered-list
     $("#remove_items_button").click(function ()
     {
         $(".Done").remove();
