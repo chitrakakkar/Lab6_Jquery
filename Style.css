@@ -1,0 +1,12 @@
+.list_elements
+{
+    color: green;
+    font-weight: bold;
+}
+
+.Done
+{
+    color: red;
+    text-decoration: line-through
+
+}
