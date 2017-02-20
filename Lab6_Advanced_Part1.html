@@ -14,27 +14,32 @@
 <button id = 'add_items' type = 'button'>Add your daily routine to your List</button>
 
 <h1>Remove Done items from the list</h1>
-<button id="remove_items" type="button">Remove done items from the list</button>
+<button id="remove_items_button" type="button">Remove done items from the list</button>
 <script>
-
+    $(function()
+    {
     $("#add_items").click(function ()
     {
+
         var list_items = "<li class='list_elements'>" + $("#list_input").val() + "</li>";
         $("#Daily_Planner").append(list_items);
+        // https://api.jquery.com/nth-last-child-selector/
+        $(".list_elements:last-child").click(function ()
+        {
+            alert("Hello");
+            $(this).toggleClass( "Done"); // http://api.jquery.com/toggleclass/
+        });
+
         $("#list_input").val("");
 
     });
 
-    $(".list_elements").click(function ()
+    $("#remove_items_button").click(function ()
     {
-        this.toggleClass("Done")
+        (".Done").remove();
+
     });
-    $("#remove_items").click(function ()
-    {
-        (".done").remove();
-
-    })
-
+ });
 
 </script>
 
