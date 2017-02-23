@@ -29,10 +29,8 @@
         <h1>Done Task Items list:</h1>
 
     </div>
-<div>
-    <table id="Deleted_items_table">
+<div id="table">
 
-    </table>
 </div>
 
 
@@ -65,17 +63,26 @@
     {
         var done_items = $(".Done");
         var delete_date = new Date().toDateString();
-        done_items.remove();
-        //var table= "<table id='Deleted_items_table'></table>"
-        var table_header= "<th>"+"Deleted_items" + "Date_deleted_on" + "</th>";
-        $("#Deleted_items_table").append(table_header);
+        $(".Done").fadeOut(500);
+        var table= $("<table id='Deleted_items_table'></table>").hide();
+        table.appendTo("#table");
+        var table_header1= "<th>Done_items</th>";
+        var table_header2 = "<th>Date_Deleted_on</th>";
+        $("#Deleted_items_table").append(table_header1);
+        $("#Deleted_items_table").append(table_header2);
         for (var i = 0; i < done_items.length; i++)
         {
-            var item_name = "<td>" + done_items[i].innerText + "</td>";
-            var Date_deleted_on = "<td>" + delete_date + "</td>";
-            var table_row = "<tr style='border: 1px solid black'>" + item_name + Date_deleted_on + "</tr>";
-           $("#Deleted_items_table").append(table_row);
+            var item_name = $("<td></td>").text(done_items[i].innerText);
+            var Date_deleted_on = $("<td></td>").text(delete_date);
+            var table_row = $("<tr></tr>");
+            table_row.append(item_name);
+            table_row.append(Date_deleted_on);
+            $("#Deleted_items_table").append(table_row);
+
         }
+        $("#Deleted_items_table").fadeIn(1000)
+
+
     }
 
  });
