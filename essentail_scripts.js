@@ -3,13 +3,14 @@
  */
 $(function()
 {
+    // making element bold
     $("span").css
     (
         {
             "font-weight": "Bold"
 
         });
-
+    // green background
     $("h2").click(function ()
     {
 
@@ -20,6 +21,7 @@ $(function()
             });
 
     });
+    // toggle elements
     $("p").hover(function ()
     {
 
@@ -27,6 +29,7 @@ $(function()
 
 
     });
+    // making H1 blue
     $("#h1_blue").click(function ()
     {
         $("H1").css(
@@ -35,6 +38,7 @@ $(function()
         })
 
     });
+    // removing not important items from the list
     $("#remove_not_important").click(function ()
     {
         $("li.not_important").hide()

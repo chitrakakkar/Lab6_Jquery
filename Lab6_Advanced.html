@@ -35,6 +35,7 @@
 
 
 <script>
+    // Part1-adding items to the list and generating it
     $(function()
     {
     $("#add_items").click(function ()
@@ -54,16 +55,17 @@
     });
         // select the class items and remove;
         //http://stackoverflow.com/questions/7004059/jquery-remove-all-list-items-from-an-unordered-list
+    // Advanced-Part2-3-4
     $("#remove_items_button").click(function ()
     {
         create_Table();
-
     });
     function create_Table()
     {
-        var done_items = $(".Done");
+        var done_items = $(".Done"); // gets done items list
         var delete_date = new Date().toDateString();
         $(".Done").fadeOut(500);
+        //creating table dynamically with Jquery
         var table= $("<table id='Deleted_items_table'></table>").hide();
         table.appendTo("#table");
         var table_header1= "<th>Done_items</th>";
