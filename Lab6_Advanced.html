@@ -7,14 +7,35 @@
     <link href="Style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<div>
 <h1>My daily planner</h1>
 <ul id = "Daily_Planner">
 </ul>
 <input type="text" id="list_input"/>
 <button id = 'add_items' type = 'button'>Add your daily routine to your List</button>
 
-<h1>Remove Done items from the list</h1>
-<button id="remove_items_button" type="button">Remove done items from the list</button>
+    </div>
+<div>
+    <br>
+    <br>
+    <hr/>
+
+</div>
+
+
+    <div>
+        <button id="remove_items_button" type="button">Remove items</button>
+
+        <h1>Done Task Items list:</h1>
+
+    </div>
+<div>
+    <table id="Deleted_items_table">
+
+    </table>
+</div>
+
+
 <script>
     $(function()
     {
@@ -27,7 +48,6 @@
         // with the last-child, the function was getting added more than once to each list element if more than one
         $(".list_elements:last-child").click(function ()
         {
-            alert("Hello");
             $(this).toggleClass( "Done"); // http://api.jquery.com/toggleclass/
         });
 
@@ -38,9 +58,26 @@
         //http://stackoverflow.com/questions/7004059/jquery-remove-all-list-items-from-an-unordered-list
     $("#remove_items_button").click(function ()
     {
-        $(".Done").remove();
+        create_Table();
 
     });
+    function create_Table()
+    {
+        var done_items = $(".Done");
+        var delete_date = new Date().toDateString();
+        done_items.remove();
+        //var table= "<table id='Deleted_items_table'></table>"
+        var table_header= "<th>"+"Deleted_items" + "Date_deleted_on" + "</th>";
+        $("#Deleted_items_table").append(table_header);
+        for (var i = 0; i < done_items.length; i++)
+        {
+            var item_name = "<td>" + done_items[i].innerText + "</td>";
+            var Date_deleted_on = "<td>" + delete_date + "</td>";
+            var table_row = "<tr style='border: 1px solid black'>" + item_name + Date_deleted_on + "</tr>";
+           $("#Deleted_items_table").append(table_row);
+        }
+    }
+
  });
 
 </script>

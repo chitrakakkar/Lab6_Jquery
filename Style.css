@@ -10,3 +10,9 @@
     text-decoration: line-through
 
 }
+
+#Deleted_items_table
+{
+    border-radius: 1px;
+    border-style: solid;
+}
