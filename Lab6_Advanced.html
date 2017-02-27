@@ -44,7 +44,7 @@
         var list_items = "<li class='list_elements'>" + $("#list_input").val() + "</li>";
         $("#Daily_Planner").append(list_items);
         // https://api.jquery.com/nth-last-child-selector/
-        // with the last-child, the function was getting added more than once to each list element if more than one
+        // without the last-child, the function was getting added more than once to each list element if more than one
         $(".list_elements:last-child").click(function ()
         {
             $(this).toggleClass( "Done"); // http://api.jquery.com/toggleclass/
