@@ -66,12 +66,14 @@
         var delete_date = new Date().toDateString();
         $(".Done").fadeOut(500);
         //creating table dynamically with Jquery
+        // hiding it so that it fades in when needed
         var table= $("<table id='Deleted_items_table'></table>").hide();
         table.appendTo("#table");
         var table_header1= "<th>Done_items</th>";
         var table_header2 = "<th>Date_Deleted_on</th>";
         $("#Deleted_items_table").append(table_header1);
         $("#Deleted_items_table").append(table_header2);
+        // a loop to iterate over number of list items
         for (var i = 0; i < done_items.length; i++)
         {
             var item_name = $("<td></td>").text(done_items[i].innerText);
