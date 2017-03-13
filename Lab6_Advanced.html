@@ -38,27 +38,44 @@
     // Part1-adding items to the list and generating it
     $(function()
     {
-    $("#add_items").click(function ()
-    {
-        // creates a new list item with new class name;#list_input.val gives the text
-        var list_items = "<li class='list_elements'>" + $("#list_input").val() + "</li>";
-        $("#Daily_Planner").append(list_items);
-        // https://api.jquery.com/nth-last-child-selector/
-        // without the last-child, the function was getting added more than once to each list element if more than one
-        $(".list_elements:last-child").click(function ()
+        $("#add_items").click(function ()
         {
-            $(this).toggleClass( "Done"); // http://api.jquery.com/toggleclass/
-        });
+            if ($("#list_input").val().length > 0)
+            {
+                // creates a new list item with new class name;#list_input.val gives the text
+                var list_items = "<li class='list_elements'>" + $("#list_input").val() + "</li>";
+                $("#Daily_Planner").append(list_items);
+                // https://api.jquery.com/nth-last-child-selector/
+                // without the last-child, the function was getting added more than once to each list element if more than one
+                $(".list_elements:last-child").click(function () {
+                    $(this).toggleClass("Done"); // http://api.jquery.com/toggleclass/
+                });
 
-        $("#list_input").val("");
+                $("#list_input").val("");
+            }
+            else
+            {
+                alert("Can't add empty string !!!")
+            }
 
-    });
+
+            });
+
+
         // select the class items and remove;
         //http://stackoverflow.com/questions/7004059/jquery-remove-all-list-items-from-an-unordered-list
     // Advanced-Part2-3-4
     $("#remove_items_button").click(function ()
     {
-        create_Table();
+        if ($("#Daily_planner").length == 0 && ($(".Done").length==0))
+        {
+            alert("No items selected to be deleted")
+        }
+        else
+        {
+
+            create_Table()
+        }
     });
     function create_Table()
     {
@@ -67,17 +84,17 @@
         $(".Done").fadeOut(500);
         //creating table dynamically with Jquery
         // hiding it so that it fades in when needed
-        var table= $("<table id='Deleted_items_table'></table>").hide();
-        table.appendTo("#table");
-        var table_header1= "<th>Done_items</th>";
-        var table_header2 = "<th>Date_Deleted_on</th>";
-        $("#Deleted_items_table").append(table_header1);
-        $("#Deleted_items_table").append(table_header2);
         // a loop to iterate over number of list items
         for (var i = 0; i < done_items.length; i++)
         {
             var item_name = $("<td></td>").text(done_items[i].innerText);
             var Date_deleted_on = $("<td></td>").text(delete_date);
+            var table= $("<table id='Deleted_items_table'></table>").hide();
+            table.appendTo("#table");
+            var table_header1= "<th>Done_items</th>";
+            var table_header2 = "<th>Date_Deleted_on</th>";
+            $("#Deleted_items_table").append(table_header1);
+            $("#Deleted_items_table").append(table_header2);
             var table_row = $("<tr></tr>");
             table_row.append(item_name);
             table_row.append(Date_deleted_on);
