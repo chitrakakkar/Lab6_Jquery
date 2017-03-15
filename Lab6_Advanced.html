@@ -40,6 +40,7 @@
     {
         $("#add_items").click(function ()
         {
+            // checks if the input is empty !
             if ($("#list_input").val().length > 0)
             {
                 // creates a new list item with new class name;#list_input.val gives the text
@@ -64,6 +65,7 @@
     // Advanced-Part2-3-4
     $("#remove_items_button").click(function ()
     {
+        //checks if the list is empty or done class list is empty
         if ($("#Daily_planner").length == 0 && ($(".Done").length==0))
         {
             alert("No items selected to be deleted")
@@ -101,7 +103,7 @@
 
         }
         $("#Deleted_items_table").fadeIn(1000);
-        $(".Done").remove();
+        $(".Done").remove(); // removes the list items once done.
 
 
     }
