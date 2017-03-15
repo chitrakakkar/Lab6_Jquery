@@ -50,15 +50,12 @@
                 $(".list_elements:last-child").click(function () {
                     $(this).toggleClass("Done"); // http://api.jquery.com/toggleclass/
                 });
-
                 $("#list_input").val("");
             }
             else
             {
                 alert("Can't add empty string !!!")
             }
-
-
             });
 
 
@@ -79,6 +76,7 @@
     });
     function create_Table()
     {
+
         var done_items = $(".Done"); // gets done items list
         var delete_date = new Date().toDateString();
         $(".Done").fadeOut(500);
@@ -89,6 +87,7 @@
         {
             var item_name = $("<td></td>").text(done_items[i].innerText);
             var Date_deleted_on = $("<td></td>").text(delete_date);
+
             var table= $("<table id='Deleted_items_table'></table>").hide();
             table.appendTo("#table");
             var table_header1= "<th>Done_items</th>";
@@ -101,12 +100,14 @@
             $("#Deleted_items_table").append(table_row);
 
         }
-        $("#Deleted_items_table").fadeIn(1000)
+        $("#Deleted_items_table").fadeIn(1000);
+        $(".Done").remove();
 
 
     }
 
  });
+
 
 </script>
 
