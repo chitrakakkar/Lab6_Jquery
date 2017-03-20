@@ -30,6 +30,8 @@
 
     </div>
 <div id="table">
+    <th>Done_items</th>
+    <th>Date_Deleted_on</th>
 
 </div>
 
@@ -41,7 +43,7 @@
         $("#add_items").click(function ()
         {
             // checks if the input is empty !
-            if ($("#list_input").val().length > 0)
+            if($("#list_input").val().length > 0)
             {
                 // creates a new list item with new class name;#list_input.val gives the text
                 var list_items = "<li class='list_elements'>" + $("#list_input").val() + "</li>";
@@ -92,10 +94,10 @@
 
             var table= $("<table id='Deleted_items_table'></table>").hide();
             table.appendTo("#table");
-            var table_header1= "<th>Done_items</th>";
-            var table_header2 = "<th>Date_Deleted_on</th>";
-            $("#Deleted_items_table").append(table_header1);
-            $("#Deleted_items_table").append(table_header2);
+//            var table_header1= "<th>Done_items</th>";
+//            var table_header2 = "<th>Date_Deleted_on</th>";
+//            $("#Deleted_items_table").append(table_header1);
+//            $("#Deleted_items_table").append(table_header2);
             var table_row = $("<tr></tr>");
             table_row.append(item_name);
             table_row.append(Date_deleted_on);
